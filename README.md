@@ -182,7 +182,7 @@ Watch a full walkthrough covering:
 - Employee and Farmer workflows
 - UI responsiveness and filtering features
 
-📺 **[Agri-Energy Connect Prototype Demo](#)** 
+📺 **[Agri-Energy Connect Prototype Demo](https://youtu.be/Znc2XRRgBMY)** 
 
 ---
 

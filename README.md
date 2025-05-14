@@ -6,17 +6,18 @@ A prototype ASP.NET Core MVC web application that bridges South African farmers 
 ---
 
 ## Table of Contents
-1. [Overview](#overview)  
-2. [Architecture & Design Pattern](#architecture--design-patterns)  
-3. [Database Setup](#database-setup)  
-4. [Getting Started](#getting-started)  
-5. [Running the Application](#running-the-application)  
-6. [Core Functionality](#core-functionality)  
-7. [Demo Video](#demo-video)  
-8. [Dependencies](#dependencies)  
-9. [Troubleshooting](#troubleshooting)  
-10. [Contributors](#contributors)  
-11. [References](#references)  
+1. [Overview](#overview)
+2. [Screenshots](#screenshots)
+3. [Architecture & Design Pattern](#architecture--design-patterns)  
+4. [Database Setup](#database-setup)  
+5. [Getting Started](#getting-started)  
+6. [Running the Application](#running-the-application)  
+7. [Core Functionality](#core-functionality)  
+8. [Demo Video](#demo-video)  
+9. [Dependencies](#dependencies)  
+10. [Troubleshooting](#troubleshooting)  
+11. [Contributors](#contributors)  
+12. [References](#references)  
 
 ---
 
@@ -41,6 +42,26 @@ to sustainable products
   - Add Products
 
 This project simulates enterprise-level workflows in a sustainable agriculture context.
+
+---
+
+## Screenshots
+
+| Home Page | Login Page |
+|------------|-----------|
+| ![Home](screenshot/home.png) | ![Login](screenshot/login.png) |
+
+| Add Farmer | Add Product |
+|------------|-------------|
+| ![Add Farmer](screenshot/addfarmer.png) | ![Add Product](screenshot/addprod.png) |
+
+| All Products (Employee View) | Farmers List |
+|------------------------------|--------------|
+| ![All Products](screenshot/employeeProd.png) | ![Farmers List](screenshot/farmerlist.png) |
+
+| My Products (Farmer View) | |
+|---------------------------|--|
+| ![My Products](screenshot/farmerprod.png) | |
 
 ---
 

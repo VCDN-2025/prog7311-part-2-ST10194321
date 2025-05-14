@@ -211,5 +211,65 @@ Watch a full walkthrough covering:
 
 ---
 ## References
+//Title: Pro C 7 with.NET and .NET Core 
+//Author: Andrew Troelsen; Philip Japikse 
+// Date: 2017 
+// Code version: Version 1 
+//Availability: Textbook / Ebook
 
+// Title: Generating random passwords
+// Author: Stack Overflow Community
+// Date: 2008
+// Code version: N/A
+// Availability: Online at https://stackoverflow.com/questions/54991/generating-random-passwords
+
+
+// Title: Role-based authorization in ASP.NET Core
+// Author: Microsoft Docs Team
+// Date: 2024
+// Code version: ASP.NET Core 8.0
+// Availability: Online at https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+
+
+// Title: Filtering Data - LINQ (C#)
+// Author: Microsoft Docs Team
+// Date: 2024
+// Code version: .NET
+// Availability: Online at https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/filtering-data
+
+// Title: Upload Files in ASP.NET MVC 5
+// Author: Suraj Kumar (C# Corner)
+// Date: 2019
+// Code version: ASP.NET MVC 5
+// Availability: Online at https://www.c-sharpcorner.com/article/upload-files-in-asp-net-mvc-5/
+
+// Title: How to add static list of items in MVC Html.DropDownList
+// Author: Stack Overflow Community
+// Date: 2009
+// Code version: N/A
+// Availability: Online at https://stackoverflow.com/questions/867117/how-to-add-static-list-of-items-in-mvc-html-dropdownlist
+
+// Title: Implement CRUD operations in ASP.NET Core MVC
+// Author: Microsoft Docs Team
+// Date: 2024
+// Code version: ASP.NET Core 9.0
+// Availability: Online at https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/crud?view=aspnetcore-9.0
+
+// Title: Role-Based Access Control (RBAC) in C# and ASP.NET Core
+// Author: Nwonah R. (Medium)
+// Date: 2023
+// Code version: ASP.NET Core
+// Availability: Online at https://medium.com/@nwonahr/role-based-access-control-rbac-in-c-and-asp-net-core-the-security-backbone-of-modern-apps-dea1204a0870
+
+// Title: CSS Tutorial
+// Author: W3Schools.com
+// Date: 2024
+// Code version: N/A
+// Availability: Online at https://www.w3schools.com/css/
+
+// Title: Learn to Code Advanced HTML & CSS
+// Author: Shay Howe
+// Date: 2014
+// Code version: N/A
+// Availability: Online at https://learn.shayhowe.com/advanced-html 
 

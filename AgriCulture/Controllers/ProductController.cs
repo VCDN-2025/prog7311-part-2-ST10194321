@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AgriCulture.Controllers
 {
+    // Controller responsible for managing agricultural products, including CRUD operations
+    // and product listing with filtering capabilities
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,7 +24,7 @@ namespace AgriCulture.Controllers
             _env = env;  
         }
 
-        // GET: Product
+        // Displays a list of products for the currently logged-in farmer
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -32,67 +34,80 @@ namespace AgriCulture.Controllers
             var products = _context.Products.Where(p => p.FarmerId == farmer.Id).ToList();
             return View(products);
         }
+        //Title: Pro C 7 with.NET and .NET Core 
+//Author: Andrew Troelsen; Philip Japikse 
+// Date: 2017 
+// Code version: Version 1 
+//Availability: Textbook / Ebook
 
-        // GET: Product/Create
+        // Displays the form to create a new product
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Product/Create
+        // Handles the creation of a new product, including image upload and validation
         [HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> Create(Product model, IFormFile ImageUrl)
-{
-    var user = await _userManager.GetUserAsync(User);
-    var farmer = _context.Farmers.FirstOrDefault(f => f.Email == user.Email);
-    if (farmer == null)
-    {
-        ModelState.AddModelError("", $"Farmer profile not found for user email: {user.Email}");
-        return View(model);
-    }
-
-    // Allow image to be optional
-    if (ImageUrl == null || ImageUrl.Length == 0)
-    {
-        ModelState.Remove("ImageUrl");
-    }
-
-    if (ImageUrl != null && ImageUrl.Length > 0)
-    {
-        // ensure /uploads folder exists under wwwroot
-        var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
-        if (!Directory.Exists(uploadsFolder))
-            Directory.CreateDirectory(uploadsFolder);
-
-        // generate a unique filename
-        var uniqueFileName = Guid.NewGuid().ToString() 
-                             + Path.GetExtension(ImageUrl.FileName);
-
-        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Product model, IFormFile ImageUrl)
         {
-            await ImageUrl.CopyToAsync(fileStream);
+            var user = await _userManager.GetUserAsync(User);
+            var farmer = _context.Farmers.FirstOrDefault(f => f.Email == user.Email);
+            if (farmer == null)
+            {
+                ModelState.AddModelError("", $"Farmer profile not found for user email: {user.Email}");
+                return View(model);
+            }
+
+            // Allow image to be optional
+            if (ImageUrl == null || ImageUrl.Length == 0)
+            {
+                ModelState.Remove("ImageUrl");
+            }
+
+            if (ImageUrl != null && ImageUrl.Length > 0)
+            {
+                // ensure /uploads folder exists under wwwroot
+                var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                // generate a unique filename
+                var uniqueFileName = Guid.NewGuid().ToString() 
+                                     + Path.GetExtension(ImageUrl.FileName);
+
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImageUrl.CopyToAsync(fileStream);
+                }
+
+                // save the relative URL to the model
+                model.ImageUrl = "/uploads/" + uniqueFileName;
+            }
+
+            if (ModelState.IsValid)
+            {
+                model.FarmerId = farmer.Id;
+                _context.Products.Add(model);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Product added successfully!";
+                return RedirectToAction(nameof(Index));
+            }
+
+            ModelState.AddModelError("", "ModelState is not valid. Please check all fields.");
+            return View(model);
         }
 
-        // save the relative URL to the model
-        model.ImageUrl = "/uploads/" + uniqueFileName;
-    }
-
-    if (ModelState.IsValid)
-    {
-        model.FarmerId = farmer.Id;
-        _context.Products.Add(model);
-        await _context.SaveChangesAsync();
-        TempData["Success"] = "Product added successfully!";
-        return RedirectToAction(nameof(Index));
-    }
-
-    ModelState.AddModelError("", "ModelState is not valid. Please check all fields.");
-    return View(model);
-}
+        // Title: Upload Files in ASP.NET MVC 5
+// Author: Suraj Kumar (C# Corner)
+// Date: 2019
+// Code version: ASP.NET MVC 5
+// Availability: Online at https://www.c-sharpcorner.com/article/upload-files-in-asp-net-mvc-5/
 
 
+        // Displays all products with filtering options (accessible only to employees)
+        // Supports filtering by farmer, category, and date range
         [Authorize(Roles = "Employee")]
         public IActionResult All(int? farmerId, string category, DateTime? startDate, DateTime? endDate)
         {
@@ -120,7 +135,14 @@ public async Task<IActionResult> Create(Product model, IFormFile ImageUrl)
             return View(products.ToList());
         }
 
-        // GET: Product/Edit/5
+        // Title: Filtering Data - LINQ (C#)
+// Author: Microsoft Docs Team
+// Date: 2024
+// Code version: .NET
+// Availability: Online at https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/filtering-data
+
+        // Displays the edit form for a specific product
+        // Ensures only the product owner can edit their products
         public async Task<IActionResult> Edit(int id)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -135,7 +157,8 @@ public async Task<IActionResult> Create(Product model, IFormFile ImageUrl)
             return View(product);
         }
 
-        // POST: Product/Edit/5
+        // Handles the update of an existing product, including image replacement
+        // Includes validation and security checks to ensure only the owner can modify
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Product model, IFormFile ImageUrl)
@@ -184,8 +207,14 @@ public async Task<IActionResult> Create(Product model, IFormFile ImageUrl)
             }
             return View(model);
         }
+        // Title: Implement CRUD operations in ASP.NET Core MVC
+// Author: Microsoft Docs Team
+// Date: 2024
+// Code version: ASP.NET Core 9.0
+// Availability: Online at https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/crud?view=aspnetcore-9.0
 
-        // POST: Product/Delete/5
+        // Handles the deletion of a product
+        // Includes security checks to ensure only the owner can delete their products
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
@@ -206,3 +235,9 @@ public async Task<IActionResult> Create(Product model, IFormFile ImageUrl)
         }
     }
 } 
+
+//Title: Pro C 7 with.NET and .NET Core
+//Author: Andrew Troelsen; Philip Japikse
+// Date: 2017
+// Code version: Version 1
+//Availability: Textbook / Ebook

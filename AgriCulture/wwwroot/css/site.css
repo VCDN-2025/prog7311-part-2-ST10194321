@@ -208,10 +208,10 @@ body {
  
 }
 
-/* change the focus border + glow color for your login inputs */
+
 .login-content .form-control:focus {
-    border-color: #09330f;              /* whatever hex you like */
-    box-shadow: 0 0 0 0.2rem rgba(22, 56, 23, 0.8); /* a matching translucent glow */
+    border-color: #09330f;            
+    box-shadow: 0 0 0 0.2rem rgba(22, 56, 23, 0.8); 
   }
   
  .glass-effect{ 
@@ -232,3 +232,10 @@ body {
     margin: auto;
   }
   
+  /* 
+  Title: CSS Tutorial
+  Author: W3Schools.com
+  Date: 2024
+  Code version: N/A
+  Availability: Online at https://www.w3schools.com/css/
+*/

@@ -18,6 +18,8 @@ using AgriCulture.Models;
 
 namespace AgriCulture.Areas.Identity.Pages.Account
 {
+    // Handles user authentication and login functionality
+    // Supports both regular and external login methods
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
@@ -58,43 +60,36 @@ namespace AgriCulture.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+        // Model for login form input validation
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            // User's email address (used as username)
             [Required]
             [EmailAddress]
             public string Email { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            // User's password
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            // Whether to remember the user's login session
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            // User's role (Farmer or Employee)
             [Required]
             public string Role { get; set; }
         }
 
+        // Title: Role-Based Access Control (RBAC) in C# and ASP.NET Core
+// Author: Nwonah R. (Medium)
+// Date: 2023
+// Code version: ASP.NET Core
+// Availability: Online at https://medium.com/@nwonahr/role-based-access-control-rbac-in-c-and-asp-net-core-the-security-backbone-of-modern-apps-dea1204a0870
+
+        // Handles GET requests to the login page
+        // Clears any existing external authentication cookies and prepares the login form
         public async Task OnGetAsync(string returnUrl = null)
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
@@ -112,6 +107,8 @@ namespace AgriCulture.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
+        // Handles POST requests for login attempts
+        // Validates credentials, checks user role, and manages authentication state
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -120,11 +117,11 @@ namespace AgriCulture.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                // Attempt to sign in the user with provided credentials
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    // Verify user exists and has the correct role
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     if (user != null && await _userManager.IsInRoleAsync(user, Input.Role))
                     {
@@ -133,11 +130,13 @@ namespace AgriCulture.Areas.Identity.Pages.Account
                     }
                     else
                     {
+                        // Sign out if role verification fails
                         await _signInManager.SignOutAsync();
                         ModelState.AddModelError(string.Empty, "Invalid role for this user.");
                         return Page();
                     }
                 }
+                // Handle various authentication scenarios
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
@@ -153,9 +152,20 @@ namespace AgriCulture.Areas.Identity.Pages.Account
                     return Page();
                 }
             }
+// Title: Role-based authorization in ASP.NET Core
+// Author: Microsoft Docs Team
+// Date: 2024
+// Code version: ASP.NET Core 8.0
+// Availability: Online at https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+
 
             // If we got this far, something failed, redisplay form
             return Page();
         }
     }
 }
+//Title: Pro C 7 with.NET and .NET Core 
+//Author: Andrew Troelsen; Philip Japikse 
+// Date: 2017 
+// Code version: Version 1 
+//Availability: Textbook / Ebook

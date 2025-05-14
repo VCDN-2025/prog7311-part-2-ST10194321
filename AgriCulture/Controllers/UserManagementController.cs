@@ -9,7 +9,9 @@ using System;
 
 namespace AgriCulture.Controllers
 {
-    [Authorize(Roles = "Employee")] // Only employees can access this controller
+    // Controller responsible for managing user accounts, specifically focused on farmer account creation
+    // and management. Only accessible by employees.
+    [Authorize(Roles = "Employee")]
     public class UserManagementController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,14 +25,17 @@ namespace AgriCulture.Controllers
             _roleManager = roleManager;
         }
 
-        // GET: Create Farmer
+        // Displays the form to create a new farmer account
+        // Optionally displays a generated password if one was created
         public IActionResult CreateFarmer(string password = null)
         {
             ViewBag.GeneratedPassword = password;
             return View();
         }
 
-        // POST: Create Farmer
+        // Handles the creation of a new farmer account
+        // Creates both ApplicationUser and Farmer records, assigns appropriate role
+        // Generates a secure random password for the new account
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateFarmer(Farmer model)
@@ -69,7 +74,18 @@ namespace AgriCulture.Controllers
             }
             return View(model);
         }
+        // Title: Role-Based Access Control (RBAC) in C# and ASP.NET Core
+// Author: Nwonah R. (Medium)
+// Date: 2023
+// Code version: ASP.NET Core
+// Availability: Online at https://medium.com/@nwonahr/role-based-access-control-rbac-in-c-and-asp-net-core-the-security-backbone-of-modern-apps-dea1204a0870
 
+        // Generates a secure random password that meets common security requirements:
+        // - At least one uppercase letter
+        // - At least one lowercase letter
+        // - At least one digit
+        // - At least one special character
+        // - Minimum length of 8 characters
         private string GeneratePassword()
         {
             var rand = new Random();
@@ -89,8 +105,13 @@ namespace AgriCulture.Controllers
                 all[rand.Next(all.Length)]
             });
         }
+// Title: Generating random passwords
+// Author: Stack Overflow Community
+// Date: 2008
+// Availability: Online at https://stackoverflow.com/questions/54991/generating-random-passwords
 
-        // GET: List all Farmers
+
+        // Displays a list of all registered farmers in the system
         public IActionResult ListFarmers()
         {
             var farmers = _context.Set<Farmer>().ToList();
@@ -98,3 +119,9 @@ namespace AgriCulture.Controllers
         }
     }
 } 
+
+//Title: Pro C 7 with.NET and .NET Core 
+//Author: Andrew Troelsen; Philip Japikse 
+// Date: 2017 
+// Code version: Version 1 
+//Availability: Textbook / Ebook

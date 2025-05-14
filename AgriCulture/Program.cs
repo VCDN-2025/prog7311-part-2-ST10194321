@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. MySQL-backed Identity DbContext
+// MySQL-backed Identity DbContext
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
     opts.UseMySql(conn, ServerVersion.AutoDetect(conn))
 );
 
-// 2. Identity services
+// Identity services
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(opts =>
 {
     opts.SignIn.RequireConfirmedAccount = false;
@@ -24,13 +24,13 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(opts =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// 3. MVC + Razor Pages
+//  MVC + Razor Pages
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// 4. Create roles and default employee
+// Creates roles and default employee
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -71,7 +71,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// 5. Middleware pipeline
+// Middleware pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -84,7 +84,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// 6. Endpoint mapping
+// Endpoint mapping
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

@@ -49,8 +49,8 @@
       "PackagePath": "staticwebassets/images/logimg4.avif"
     },
     {
-      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/images/logo1.svg",
-      "PackagePath": "staticwebassets/images/logo1.svg"
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/images/logo2.png",
+      "PackagePath": "staticwebassets/images/logo2.png"
     },
     {
       "Id": "/Users/josegonzalves/AgriCulture/wwwroot/images/logo2.svg",
@@ -289,8 +289,44 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/130b6ffd-9203-4f8e-92df-b622de6d64c9.webp",
+      "PackagePath": "staticwebassets/uploads/130b6ffd-9203-4f8e-92df-b622de6d64c9.webp"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/253bab48-fccb-4aba-9217-f493966526ed.webp",
+      "PackagePath": "staticwebassets/uploads/253bab48-fccb-4aba-9217-f493966526ed.webp"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/3ce13bb9-c0fb-467a-bf8e-e46ae2a4c621.jpg",
+      "PackagePath": "staticwebassets/uploads/3ce13bb9-c0fb-467a-bf8e-e46ae2a4c621.jpg"
+    },
+    {
       "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/88bdac1c-cfea-45e8-9569-6f6289ee2575.webp",
       "PackagePath": "staticwebassets/uploads/88bdac1c-cfea-45e8-9569-6f6289ee2575.webp"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/b890bd03-6937-4a84-a6f5-f6da27e7a501.png",
+      "PackagePath": "staticwebassets/uploads/b890bd03-6937-4a84-a6f5-f6da27e7a501.png"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/e5ce37cf-c69d-40eb-94ba-c55100543c9f.webp",
+      "PackagePath": "staticwebassets/uploads/e5ce37cf-c69d-40eb-94ba-c55100543c9f.webp"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/eb0c0b73-d606-42ae-bdb4-34d84295fd14.jpg",
+      "PackagePath": "staticwebassets/uploads/eb0c0b73-d606-42ae-bdb4-34d84295fd14.jpg"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/f4e7385a-fbdf-4a5a-ba20-b64b78ee06d6.webp",
+      "PackagePath": "staticwebassets/uploads/f4e7385a-fbdf-4a5a-ba20-b64b78ee06d6.webp"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/f61f1662-266e-494f-80af-cc0c6c58b9c9.jpg",
+      "PackagePath": "staticwebassets/uploads/f61f1662-266e-494f-80af-cc0c6c58b9c9.jpg"
+    },
+    {
+      "Id": "/Users/josegonzalves/AgriCulture/wwwroot/uploads/ff9f233f-ea40-4ca2-91a9-c50e4fc320f5.jpg",
+      "PackagePath": "staticwebassets/uploads/ff9f233f-ea40-4ca2-91a9-c50e4fc320f5.jpg"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.AgriCulture.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

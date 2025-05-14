@@ -1,0 +1,49 @@
+@model IEnumerable<AgriCulture.Models.Product>
+
+@{
+    ViewData["Title"] = "My Products";
+}
+
+<div class="log-overlay-custom"></div>
+
+<div class="container py-5">
+    <div class="mb-4 p-4" style="background: #fffdf5; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2.5rem; color: #002307; margin-bottom: 0;">My Products</h1>
+            <a class="btn" asp-action="Create" style="background: #ffd36a; color: #222; font-weight: 700; font-size: 1.1rem; border-radius: 12px; padding: 0.7rem 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">Add New Product</a>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-2">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 col-lg-3">
+    <div class="card shadow-sm" style="border: 1.5px solid #002307; border-radius: 16px; background: #fffdf5;">
+        <div class="card-body" style="padding: 1rem;">
+            <h5 class="card-title" style="font-family: 'Inter', sans-serif; font-weight: 900; color: #002307;">@product.Name</h5>
+            <h6 class="card-subtitle mb-2" style="color: #ffd36a; font-weight: 700;">@product.Category</h6>
+            <p class="mb-1" style="color: #002307; font-weight: 600;">Production Date: <span style="color: #222;">@product.ProductionDate.ToShortDateString()</span></p>
+           <p class="mb-1" style="color: #002307; font-weight: 600;">Price: R @String.Format("{0:N2}", product.Price)</p>
+            @if (!string.IsNullOrEmpty(product.ImageUrl))
+            {
+                <div class="mb-3">
+                    <img src="@product.ImageUrl" class="card-img-top w-100" style="height: 150px; object-fit: cover; border-radius: 8px;">
+                </div>
+            }
+            <div class="d-flex gap-2 mb-2">
+                <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm" style="background: #ffd36a; color: #222; font-weight: 700; border-radius: 8px;">Edit</a>
+                <form asp-action="Delete" asp-route-id="@product.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this product?');" style="display:inline;">
+                    <button type="submit" class="btn btn-sm" style="background: #ff6a6a; color: #fff; font-weight: 700; border-radius: 8px;">Delete</button>
+                </form>
+            </div>
+          
+        </div>
+    </div>
+</div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

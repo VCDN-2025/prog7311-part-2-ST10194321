@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AgriCulture</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AgriCulture.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .custom-navbar .nav-link, .custom-navbar .navbar-text {
+            font-size: 1rem !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/images/logo2.svg" alt="Agri-Energy Connect" style="height: 70px; width: 140px; margin-left: 40px; margin-top: -15px;" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-house me-2"></i>Home</a></li>
+                        @if (User.IsInRole("Employee"))
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="UserManagement" asp-action="CreateFarmer"><i class="fas fa-user-plus me-2"></i>Add Farmer</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Product" asp-action="All"><i class="fas fa-boxes-stacked me-2"></i>Marketplace</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="UserManagement" asp-action="ListFarmers"><i class="fas fa-users me-2"></i>Our Farmers</a></li>
+                        }
+                        @if (User.IsInRole("Farmer"))
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Product" asp-action="Index"><i class="fas fa-seedling me-2"></i>My Products</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Product" asp-action="Create"><i class="fas fa-plus me-2"></i>Add Product</a></li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <span class="navbar-text me-2" style="color: #fff; font-weight: 700;"><i class="fas fa-user-circle me-1"></i>Hello, @User.Identity.Name!</span>
+                            </li>
+                            <li class="nav-item">
+                                <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
+                                    <button type="submit" class="nav-link btn btn-link text-light" style="font-weight: 700; display:inline; padding:0;"><i class="fas fa-right-from-bracket me-2"></i>Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-right-to-bracket me-2"></i>Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background: #002307; color: #fff;">
+        <div class="container">
+            &copy; 2025 - AgriCulture - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color: #ffd36a;">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

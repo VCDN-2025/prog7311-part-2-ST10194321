@@ -1,0 +1,65 @@
+@model AgriCulture.Models.Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="log-overlay-custom"></div>
+
+<div class="d-flex align-items-center justify-content-center py-4" style="min-height: 80vh; background: #fdfbf3;">
+    <div class="p-4" style="background: #fffdf5; border: 5px solid #002307; border-radius: 16px; max-width: 600px; width: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <h1 style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 3rem; color: #002307; margin-bottom: 0.5rem;">Edit Product</h1>
+        <h2 style="font-family: 'Inter', sans-serif; font-weight: 700; color: #ffd36a; font-size: 1.6rem; margin-bottom: 1.5rem;"> Update your product details</h2>
+        @if (TempData["Success"] != null && Context.Request.Method != "GET" && TempData["Success"].ToString().Contains("updated"))
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+        <form asp-action="Edit" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div asp-validation-summary="All" class="text-danger mb-2"></div>
+            <hr style="margin-bottom: 1.5rem; margin-top: 0.5rem;" />
+            <input type="hidden" asp-for="Id" />
+            <div class="form-floating mb-3">
+                <input asp-for="Name" class="form-control form-control-lg" placeholder="Product Name" style="font-size: 1.1rem;" />
+                <label for="Name">Name</label>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Category" class="form-control form-control-lg" placeholder="Category" style="font-size: 1.1rem;" />
+                <label for="Category">Category</label>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Description" class="form-control form-control-lg" placeholder="Description" style="font-size: 1.1rem;" />
+                <label for="Description">Description</label>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Price" class="form-control form-control-lg" placeholder="Price" style="font-size: 1.1rem;" />
+                <label for="Price">Price</label>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="ImageUrl" class="form-label">Product Image</label>
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <div class="mb-2">
+                        <img src="@Model.ImageUrl" alt="Current Image" style="max-width: 100%; max-height: 180px; border-radius: 8px; border: 1px solid #ccc;" />
+                        <div class="form-text">Current image. Upload a new one to replace.</div>
+                    </div>
+                }
+                <input name="ImageUrl" class="form-control" type="file" accept="image/*" />
+                <div class="form-text">Upload a new product image (optional)</div>
+            </div>
+            <div class="form-floating mb-4">
+                <input asp-for="ProductionDate" class="form-control form-control-lg" type="date" placeholder="Production Date" style="font-size: 1.1rem;" />
+                <label for="ProductionDate">Production Date</label>
+                <span asp-validation-for="ProductionDate" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn w-100" style="background: #ffd36a; color: #222; font-weight: 700; font-size: 1.3rem; border-radius: 14px; padding: 0.8rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">Update Product</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

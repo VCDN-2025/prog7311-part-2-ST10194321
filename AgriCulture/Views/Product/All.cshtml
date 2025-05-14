@@ -1,0 +1,79 @@
+@model IEnumerable<AgriCulture.Models.Product>
+@using AgriCulture.Models
+@{
+    ViewData["Title"] = "All Products";
+    var farmers = ViewBag.Farmers as List<Farmer>;
+    var selected = Context.Request.Query["farmerId"];
+}
+
+<div class="log-overlay-custom"></div>
+
+<div class="container py-5">
+    <div class="mb-4 p-4" style="background: #fffdf5; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
+        <h1 style="font-family: 'Inter', sans-serif; font-weight: 9000; font-size: 2.5rem; color: #002307; margin-bottom: 0.5rem;">All Products</h1>
+        <form method="get" class="row g-3 align-items-end">
+            <div class="col-md-3">
+                <label class="fw-bold" style="color: #002307;">Farmer</label>
+                <select name="farmerId" class="form-select form-select-lg">
+                    <option value="">All</option>
+                    @foreach (var farmer in farmers)
+                    {
+                        var isSelected = selected == farmer.Id.ToString();
+                        <option value="@farmer.Id" selected="@(isSelected ? "selected" : null)">@farmer.FirstName @farmer.LastName</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="fw-bold" style="color: #002307;">Category</label>
+                <select name="category" class="form-select form-select-lg">
+                    <option value="">All</option>
+                    @foreach (var cat in ViewBag.Categories as List<string>)
+                    {
+                        var isSelected = Context.Request.Query["category"] == cat;
+                        <option value="@cat" selected="@(isSelected ? "selected" : null)">@cat</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="fw-bold" style="color: #002307;">Start Date</label>
+                <input type="date" name="startDate" class="form-control form-control-lg" value="@Context.Request.Query["startDate"]" />
+            </div>
+            <div class="col-md-2">
+                <label class="fw-bold" style="color: #002307;">End Date</label>
+                <input type="date" name="endDate" class="form-control form-control-lg" value="@Context.Request.Query["endDate"]" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn w-100" style="background: #ffd36a; color: #222; font-weight: 700; font-size: 1.1rem; border-radius: 12px; padding: 0.7rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">Filter</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="row g-4 mt-2">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 col-lg-3">
+                <div class="card shadow-sm" style="border: 1.5px solid #002307; border-radius: 16px; background: #fffdf5;">
+                    <div class="card-body" style="padding: 1rem;">
+                        <h5 class="card-title" style="font-family: 'Inter', sans-serif; font-weight: 900; color: #002307;">@product.Name</h5>
+                        <h6 class="card-subtitle mb-2" style="color: #ffd36a; font-weight: 700;">@product.Category</h6>
+                        <p class="mb-1" style="color: #002307; font-weight: 600;">Production Date: <span style="color: #222;">@product.ProductionDate.ToShortDateString()</span></p>
+                        <p class="mb-1" style="color: #002307; font-weight: 600;">Price: R @String.Format("{0:N2}", product.Price)</p>
+                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                        {
+                            <div class="mb-3">
+                                <img src="@product.ImageUrl" class="card-img-top w-100" style="height: 150px; object-fit: cover; border-radius: 8px;">
+                            </div>
+                        }
+                        <p class="mb-0" style="color: #002307; font-size: 1rem;">
+                            <span style="font-weight: 700;">Farmer:</span> @(product.Farmer != null ? product.Farmer.FirstName + " " + product.Farmer.LastName : "Unknown")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

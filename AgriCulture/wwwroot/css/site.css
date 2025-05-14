@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap');
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #09330f;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background: #f8f8f8;
+}
+
+.hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+}
+.hero-overlay {
+    background: rgba(34, 49, 34, 0.9);
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-title, h1, h2, h3, h4, h5 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+}
+.navbar-brand {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    color: #fff !important;
+}
+.bg-success {
+    background-color: #4e944f !important;
+}
+.text-warning {
+    color: #ffd700 !important;
+}
+
+.custom-navbar {
+    background: #002307 !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+.custom-navbar .navbar-brand {
+    color: #fff !important;
+    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.custom-navbar .nav-link {
+    color: #e6e6e6 !important;
+    font-size: 1.1rem;
+    margin-right: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+.custom-navbar .nav-link.active, .custom-navbar .nav-link:hover {
+    color: #ffd36a !important;
+    border-bottom: 2px solid #ffd36a;
+    background: transparent;
+}
+
+.hero-section-custom {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0;
+    border: none;
+}
+.hero-overlay-custom {
+    background: rgba(34, 49, 34, 0.3) !important;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.hero-content-custom {
+    max-width: 700px;
+    margin-left: 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.hero-label {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: relative;
+    display: inline-block;
+}
+.hero-label .hero-leaf {
+    font-size: 1.3em;
+    margin-left: 0.3em;
+    vertical-align: middle;
+}
+.hero-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+.hero-highlight {
+    color: #ffd36a;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3.2rem;
+    display: inline-block;
+}
+.hero-desc {
+    color: #e6e6e6;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+.hero-btn {
+    background: #ffd36a;
+    color: #2d3e2f;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.hero-btn:hover {
+    background: #ffb700;
+    color: #fff;
+}
+
+
+.log-overlay-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 253, 245, 0.9);
+    z-index: -1;
+  }
+  
+ 
+  .login-content {
+    position: relative;
+    z-index: 2; 
+  }
+
+  .navbar {
+    position: relative; 
+    z-index: 1; 
+  }
+  
+  .log-highlight {
+    color: #ffd36a;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3.2rem;
+    display: inline-block;
+    margin-top:7rem ;
+}
+.log-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.log-desc {
+    color: #002307;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+ 
+}
+
+/* change the focus border + glow color for your login inputs */
+.login-content .form-control:focus {
+    border-color: #09330f;              /* whatever hex you like */
+    box-shadow: 0 0 0 0.2rem rgba(22, 56, 23, 0.8); /* a matching translucent glow */
+  }
+  
+ .glass-effect{ 
+
+    background: linear-gradient(135deg, rgba(255, 255, 255,0.1), rgba(255,255,255,0));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    border: 1px solig rgba(255, 255, 255,0.18);
+    border-radius: 32px;
+
+ }
+
+ .create-farmer-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem; 
+    margin: auto;
+  }
+  

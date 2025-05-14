@@ -27,7 +27,7 @@ with the innovation of green energy solutions but creating an online platform th
 allow farmers, green energy professionals and enthusiasts can collaborate in order to
 improve South Africa’s effort into being more sustainable in the agriculture sector. This
 collaboration will streamline operational processes and promote environmental
-sustainability by o>ering valuable resources
+sustainability by offering valuable resources
 to professionals. It will implement an
 accessible marketplace to connect farmers
 to sustainable products
@@ -211,65 +211,22 @@ Watch a full walkthrough covering:
 
 ---
 ## References
-//Title: Pro C 7 with.NET and .NET Core 
-//Author: Andrew Troelsen; Philip Japikse 
-// Date: 2017 
-// Code version: Version 1 
-//Availability: Textbook / Ebook
+- Howe, S., 2014. Learn to Code Advanced HTML & CSS. ShayHowe.com. [online] Available at:<<https://learn.shayhowe.com/advanced-html-css/>>  [Accessed 14 May 2025].
 
-// Title: Generating random passwords
-// Author: Stack Overflow Community
-// Date: 2008
-// Code version: N/A
-// Availability: Online at https://stackoverflow.com/questions/54991/generating-random-passwords
+- Kumar, S., 2019. Upload Files in ASP.NET MVC 5. C# Corner. [online] Available at: <<https://www.c-sharpcorner.com/article/upload-files-in-asp-net-mvc-5/>>  [Accessed 14 May 2025].
 
+- Microsoft Docs Team, 2024. Filtering Data - LINQ (C#). Microsoft Learn. [online] Available at: <<https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/filtering-data>>  [Accessed 14 May 2025].
 
-// Title: Role-based authorization in ASP.NET Core
-// Author: Microsoft Docs Team
-// Date: 2024
-// Code version: ASP.NET Core 8.0
-// Availability: Online at https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+- Microsoft Docs Team, 2024. Implement CRUD operations in ASP.NET Core MVC. Microsoft Learn. [online] Available at: <<https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/crud?view=aspnetcore-9.0>>  [Accessed 14 May 2025].
 
+- Microsoft Docs Team, 2024. Role-based authorization in ASP.NET Core. Microsoft Learn. [online] Available at: <<https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0>> [Accessed 14 May 2025].
 
-// Title: Filtering Data - LINQ (C#)
-// Author: Microsoft Docs Team
-// Date: 2024
-// Code version: .NET
-// Availability: Online at https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/filtering-data
+- Nwonah, R., 2023. Role-Based Access Control (RBAC) in C# and ASP.NET Core: The Security Backbone of Modern Apps. Medium. [online] Available at: <<https://medium.com/@nwonahr/role-based-access-control-rbac-in-c-and-asp-net-core-the-security-backbone-of-modern-apps-dea1204a0870>>  [Accessed 14 May 2025].
 
-// Title: Upload Files in ASP.NET MVC 5
-// Author: Suraj Kumar (C# Corner)
-// Date: 2019
-// Code version: ASP.NET MVC 5
-// Availability: Online at https://www.c-sharpcorner.com/article/upload-files-in-asp-net-mvc-5/
+- Stack Overflow Community, 2008. Generating random passwords. Stack Overflow. [online] Available at: <<https://stackoverflow.com/questions/54991/generating-random-passwords>>  [Accessed 14 May 2025].
 
-// Title: How to add static list of items in MVC Html.DropDownList
-// Author: Stack Overflow Community
-// Date: 2009
-// Code version: N/A
-// Availability: Online at https://stackoverflow.com/questions/867117/how-to-add-static-list-of-items-in-mvc-html-dropdownlist
+- Stack Overflow Community, 2009. How to add static list of items in MVC Html.DropDownList. Stack Overflow. [online] Available at: <<https://stackoverflow.com/questions/867117/how-to-add-static-list-of-items-in-mvc-html-dropdownlist>> [Accessed 14 May 2025].
 
-// Title: Implement CRUD operations in ASP.NET Core MVC
-// Author: Microsoft Docs Team
-// Date: 2024
-// Code version: ASP.NET Core 9.0
-// Availability: Online at https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/crud?view=aspnetcore-9.0
+- Troelsen, A. and Japikse, P., 2017. Pro C# 7 with .NET and .NET Core. [ebook] 1st ed. Textbook. Available at: <https://dl.ebooksworld.ir/books/Pro.CSharp.10.with.NET.6.Andrew.Troelsen.Phil.Japikse.Apress.9781484278680.EBooksWorld.ir.pdf> [Accessed 14 May 2025].
 
-// Title: Role-Based Access Control (RBAC) in C# and ASP.NET Core
-// Author: Nwonah R. (Medium)
-// Date: 2023
-// Code version: ASP.NET Core
-// Availability: Online at https://medium.com/@nwonahr/role-based-access-control-rbac-in-c-and-asp-net-core-the-security-backbone-of-modern-apps-dea1204a0870
-
-// Title: CSS Tutorial
-// Author: W3Schools.com
-// Date: 2024
-// Code version: N/A
-// Availability: Online at https://www.w3schools.com/css/
-
-// Title: Learn to Code Advanced HTML & CSS
-// Author: Shay Howe
-// Date: 2014
-// Code version: N/A
-// Availability: Online at https://learn.shayhowe.com/advanced-html 
-
+- W3Schools.com, 2024. CSS Tutorial. W3Schools. [online] Available at: <<https://www.w3schools.com/css/>>  [Accessed 14 May 2025].
